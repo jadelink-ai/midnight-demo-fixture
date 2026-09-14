@@ -12,7 +12,7 @@
       "criterion": "The fixture can freeze, candidate, and verify this requirement after a human G2."
     }
   ],
-  "risk_level": "LOW",
+  "risk_level": "HIGH",
   "acceptance": {
     "requester_development_literacy": "TECHNICAL",
     "method": "E2E"
