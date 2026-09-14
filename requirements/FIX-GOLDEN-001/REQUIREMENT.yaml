@@ -1,0 +1,20 @@
+{
+  "schema": "midnight.requirement/1",
+  "id": "FIX-GOLDEN-001",
+  "title": "Fixture golden-path sample requirement",
+  "revision": 1,
+  "status": "DRAFT",
+  "owner": "midnight-ht",
+  "goal": "Give the independent midnight-demo-fixture repository a freeze → candidate → verify subject.",
+  "acceptance_criteria": [
+    {
+      "id": "AC-001",
+      "criterion": "The fixture can freeze, candidate, and verify this requirement after a human G2."
+    }
+  ],
+  "risk_level": "LOW",
+  "acceptance": {
+    "requester_development_literacy": "TECHNICAL",
+    "method": "E2E"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "midnight.iteration/1",
+  "id": "ITER-FIX-001",
+  "title": "Fixture golden path",
+  "goal": "Own FIX-GOLDEN-001 as the independent fixture delivery subject.",
+  "requirements": ["FIX-GOLDEN-001"]
+}
