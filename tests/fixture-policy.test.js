@@ -9,3 +9,7 @@ test('demo fixture requires host status checks', () => {
   assert.equal(ci.protected_change.enforcement, 'repository_host_required_status_checks');
   assert.deepEqual(project.protected_change.required_status_checks, ['midnight-governance']);
 });
+
+test('GOV-019 red-check probe must fail until reverted', () => {
+  assert.equal('intentional-fail', 'pass');
+});
