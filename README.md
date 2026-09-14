@@ -4,6 +4,8 @@ Public GOV-019 host-enforcement fixture. This repository is a **consumer** of th
 
 Required status check: `midnight-governance`.
 
+E2E probe: this PR exists to prove a red `midnight-governance` check blocks merge into `main`, and a green check allows merge.
+
 ## Local
 
 ```bash
