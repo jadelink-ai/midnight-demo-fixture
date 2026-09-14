@@ -10,6 +10,12 @@
   "runtime_config": {
     "minimum_coverage": "none"
   },
+  "identity": {
+    "gate_actor_id_source": "github.login",
+    "actor_id_format": "github:<login>",
+    "local_source": "github.cli",
+    "ci_source": "github.actions.oidc"
+  },
   "protected_change": {
     "required_status_checks": [
       "midnight-governance"

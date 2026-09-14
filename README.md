@@ -1,10 +1,11 @@
 # Midnight demo fixture
 
-Public GOV-019 host-enforcement fixture. This repository is a **consumer** of the Midnight CLI, not the kernel.
+Public consumer of the Midnight CLI, not the kernel.
 
-Required status check: `midnight-governance`.
+- GOV-019: host-enforced required check `midnight-governance`
+- GOV-021: independent golden-path E2E subject (freeze → G2 → candidate → verify → GitHub Release observation)
 
-E2E probe: this PR exists to prove a red `midnight-governance` check blocks merge into `main`, and a green check allows merge.
+Kernel `npm test` is **not** this repository's golden-path E2E.
 
 ## Local
 
@@ -13,3 +14,5 @@ npm test
 npm run lint
 npm run compile:check
 ```
+
+Golden path: see `docs/golden-path.md` after publish, or the kernel doc `docs/fixtures/golden-path.md`.
