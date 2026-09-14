@@ -1,0 +1,20 @@
+{
+  "release": "REL-FIX-GOLDEN-001",
+  "revision": 1,
+  "requirements": [
+    {
+      "id": "FIX-GOLDEN-001",
+      "revision": 1
+    }
+  ],
+  "source_revision": "workspace:uncommitted",
+  "artifact_manifest_digest": "sha256:bf551427bb93b2762e29fc326bedde7a8e2cac4e25b3126cea8fc66f46d2e55b",
+  "deployment_digest": "sha256:a630af543a518c3e102672e2628598d048908e8dd545dd1e3484dea65f44d6ec",
+  "migration_digest": "sha256:9fdfd73d73c0b6138080bf4cfa768764e63008fbf10940502dcb51576ea3d588",
+  "config_snapshot": {
+    "schema": "midnight.config/1",
+    "values": {},
+    "secrets": []
+  },
+  "policy_digest": "sha256:fb87734966bca98085b730439c3dc9fe65ae442a734bfea5cd817a24e5701e42"
+}

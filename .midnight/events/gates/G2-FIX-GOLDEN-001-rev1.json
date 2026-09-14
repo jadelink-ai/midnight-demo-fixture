@@ -1,0 +1,19 @@
+{
+  "schema": "midnight.gate-event/1",
+  "gate": "G2",
+  "actor_id": "github:midnight-ht",
+  "identity_source": {
+    "kind": "github.cli",
+    "login": "midnight-ht"
+  },
+  "decision": "AUTHORIZED",
+  "subject": "FIX-GOLDEN-001",
+  "revision": 1,
+  "covers": [
+    "FIX-GOLDEN-001"
+  ],
+  "subject_digest": "sha256:d3fc73c5020a9c2450a9732657e59b650c5d8f7210138f3d05ade19a50d409f2",
+  "signed_at": "2026-09-15T00:33:00+08:00",
+  "recorded_by": "github:midnight-ht",
+  "note": "Human G2 for fixture golden path. AI did not approve."
+}

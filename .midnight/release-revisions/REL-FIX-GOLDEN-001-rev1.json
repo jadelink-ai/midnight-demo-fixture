@@ -1,0 +1,23 @@
+{
+  "schema": "midnight.release-revision/1",
+  "release": "REL-FIX-GOLDEN-001",
+  "revision": 1,
+  "requirements": [
+    {
+      "id": "FIX-GOLDEN-001",
+      "revision": 1,
+      "requirement_revision_digest": "sha256:404741343e56b1297431003de40678a1ea71948e91b22f484d707f3687f4fb19"
+    }
+  ],
+  "source_revision": "workspace:uncommitted",
+  "bundle": {
+    "artifact_manifest_digest": "sha256:bf551427bb93b2762e29fc326bedde7a8e2cac4e25b3126cea8fc66f46d2e55b",
+    "deployment_digest": "sha256:a630af543a518c3e102672e2628598d048908e8dd545dd1e3484dea65f44d6ec",
+    "migration_digest": "sha256:9fdfd73d73c0b6138080bf4cfa768764e63008fbf10940502dcb51576ea3d588",
+    "config_snapshot_digest": "sha256:0fac5f5dff77cbb03c81af34d3768a5ffa608c0ba60bdd3070a9825475dbed5e"
+  },
+  "bundle_digest": "sha256:4d5e8b01dd9435b0b7a8b8c5636138e579f82af5d82527c36bd04efd520567ee",
+  "policy_digest": "sha256:fb87734966bca98085b730439c3dc9fe65ae442a734bfea5cd817a24e5701e42",
+  "frozen_at": "2026-09-14T16:33:48.686Z",
+  "release_revision_digest": "sha256:d581110d4455ac484d25ecfae2a36c58dc96f3f0605ff36dce2ddc7a84cb4cf1"
+}
