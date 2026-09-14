@@ -1,0 +1,9 @@
+{
+  "schema": "midnight.requirement-revision/1",
+  "id": "FIX-GOLDEN-001",
+  "revision": 1,
+  "source": "requirements/FIX-GOLDEN-001/REQUIREMENT.yaml",
+  "requirement_digest": "sha256:d3fc73c5020a9c2450a9732657e59b650c5d8f7210138f3d05ade19a50d409f2",
+  "frozen_at": "2026-09-14T16:32:48.466Z",
+  "requirement_revision_digest": "sha256:404741343e56b1297431003de40678a1ea71948e91b22f484d707f3687f4fb19"
+}

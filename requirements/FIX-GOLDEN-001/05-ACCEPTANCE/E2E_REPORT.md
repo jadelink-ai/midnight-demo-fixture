@@ -1,3 +1,4 @@
 # E2E Report
 
-Status: PENDING
+Status: PASS
+Actual executor: github:midnight-ht
