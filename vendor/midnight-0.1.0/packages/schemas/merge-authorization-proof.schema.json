@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "midnight.merge-authorization-proof/1",
+  "title": "Merge Authorization Proof",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema",
+    "source_revision",
+    "requirements",
+    "g2_refs",
+    "proof_digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "midnight.merge-authorization-proof/1"
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "revision",
+          "requirement_revision_digest"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "requirement_revision_digest": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "g2_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "proof_digest": {
+      "type": "string",
+      "pattern": "^sha256:"
+    }
+  }
+}

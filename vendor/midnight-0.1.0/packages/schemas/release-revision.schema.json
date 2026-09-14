@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReleaseRevision",
+  "type": "object",
+  "required": [
+    "schema",
+    "release",
+    "revision",
+    "requirements",
+    "source_revision",
+    "bundle",
+    "bundle_digest",
+    "release_revision_digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "midnight.release-revision/1"
+    },
+    "release": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "requirements": {
+      "type": "array"
+    },
+    "source_revision": {
+      "type": "string"
+    },
+    "bundle": {
+      "type": "object",
+      "required": [
+        "artifact_manifest_digest",
+        "deployment_digest",
+        "migration_digest",
+        "config_snapshot_digest"
+      ]
+    },
+    "bundle_digest": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "release_revision_digest": {
+      "type": "string",
+      "pattern": "^sha256:"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "midnight-demo-fixture",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "midnight": "node --experimental-strip-types vendor/midnight-0.1.0/apps/cli/src/index.ts",
+    "test": "node --test tests/*.test.js",
+    "lint": "node --experimental-strip-types vendor/midnight-0.1.0/apps/cli/src/index.ts lint",
+    "compile:check": "node --experimental-strip-types vendor/midnight-0.1.0/apps/cli/src/index.ts compile --check --tools all"
+  }
+}

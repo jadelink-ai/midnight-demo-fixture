@@ -1,0 +1,11 @@
+{
+  "schema": "midnight.workflow/1",
+  "id": "midnight.requirement",
+  "steps": [
+    "resolve_intent",
+    "create_requirement",
+    "surface_ambiguities",
+    "define_acceptance",
+    "lint_requirement"
+  ]
+}

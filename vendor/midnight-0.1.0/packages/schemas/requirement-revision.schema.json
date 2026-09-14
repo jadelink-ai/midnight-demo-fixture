@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "midnight.requirement-revision/1",
+  "title": "RequirementRevision",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema",
+    "id",
+    "revision",
+    "source",
+    "requirement_digest",
+    "requirement_revision_digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "midnight.requirement-revision/1"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requirement_digest": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "requirement_revision_digest": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "frozen_at": {
+      "type": "string"
+    }
+  }
+}

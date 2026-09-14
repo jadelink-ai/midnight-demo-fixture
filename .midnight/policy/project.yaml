@@ -1,0 +1,20 @@
+{
+  "schema": "midnight.policy/1",
+  "profile": "P0",
+  "release": {
+    "require_g3_g4_separation": true
+  },
+  "generated_files": {
+    "managed": true
+  },
+  "runtime_config": {
+    "minimum_coverage": "none"
+  },
+  "protected_change": {
+    "required_status_checks": [
+      "midnight-governance"
+    ],
+    "block_on_failure": true,
+    "enforcement": "repository_host_required_status_checks"
+  }
+}

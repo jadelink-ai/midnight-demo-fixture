@@ -1,0 +1,437 @@
+{
+  "schema": "midnight.rules/1",
+  "version": "2.4.2",
+  "rules": {
+    "MID-REL-002": {
+      "phase": "P0",
+      "category": "release",
+      "severity": "blocking",
+      "statement": "Candidate must have a unique ReleaseRevision identity.",
+      "enforcer": "candidate-builder",
+      "blocking_points": [
+        "candidate"
+      ]
+    },
+    "MID-REL-003": {
+      "phase": "P0",
+      "category": "release",
+      "severity": "blocking",
+      "statement": "ReleaseRevision is immutable after Candidate creation.",
+      "enforcer": "candidate-builder",
+      "blocking_points": [
+        "candidate_mutation"
+      ]
+    },
+    "MID-REL-006": {
+      "phase": "P0",
+      "category": "release",
+      "severity": "blocking",
+      "statement": "After Candidate creation, ReleaseRevision.requirements is authoritative.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "G3",
+        "G4",
+        "release"
+      ]
+    },
+    "MID-BND-001": {
+      "phase": "P0",
+      "category": "bundle",
+      "severity": "blocking",
+      "statement": "All target production artifacts must be represented in ArtifactSet.",
+      "enforcer": "candidate-builder",
+      "blocking_points": [
+        "candidate"
+      ]
+    },
+    "MID-BND-002": {
+      "phase": "P0",
+      "category": "bundle",
+      "severity": "blocking",
+      "statement": "Deployment specification must be digest-bound.",
+      "enforcer": "candidate-builder",
+      "blocking_points": [
+        "candidate"
+      ]
+    },
+    "MID-BND-003": {
+      "phase": "P0",
+      "category": "config",
+      "severity": "blocking",
+      "statement": "Behavior-affecting config must be represented by ConfigSnapshot digest.",
+      "enforcer": "candidate-builder",
+      "blocking_points": [
+        "candidate"
+      ]
+    },
+    "MID-BND-004": {
+      "phase": "P0",
+      "category": "migration",
+      "severity": "blocking",
+      "statement": "MigrationSet must be digest-bound or explicitly empty.",
+      "enforcer": "candidate-builder",
+      "blocking_points": [
+        "candidate"
+      ]
+    },
+    "MID-CFG-007": {
+      "phase": "P0",
+      "category": "config",
+      "severity": "blocking",
+      "statement": "Every ReleaseRevision must have a ConfigSnapshot digest.",
+      "enforcer": "candidate-builder",
+      "blocking_points": [
+        "candidate"
+      ]
+    },
+    "MID-EVD-002": {
+      "phase": "P0",
+      "category": "evidence",
+      "severity": "blocking",
+      "statement": "Evidence subject must match ReleaseRevision.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "verifiable",
+        "G3"
+      ]
+    },
+    "MID-EVD-003": {
+      "phase": "P0",
+      "category": "evidence",
+      "severity": "blocking",
+      "statement": "not_run, tool error, or missing evidence must never be pass.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "verifiable"
+      ]
+    },
+    "MID-GAT-001": {
+      "phase": "P0",
+      "category": "gate",
+      "severity": "blocking",
+      "statement": "Code-acceptance requirements must have G3 verification bound to the concrete ReleaseRevision subject; E2E-only requirements do not require G3.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "G3"
+      ]
+    },
+    "MID-GAT-004": {
+      "phase": "P0",
+      "category": "gate",
+      "severity": "blocking",
+      "statement": "CODE-acceptance requirements must have G4 acceptance bound to the concrete ReleaseRevision subject; E2E-only requirements do not require G4.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "G4"
+      ]
+    },
+    "MID-ACC-001": {
+      "phase": "P0",
+      "category": "acceptance",
+      "severity": "blocking",
+      "statement": "A declared acceptance policy must identify requester development literacy and method; non-technical requesters may only choose E2E.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "governance_change"
+      ]
+    },
+    "MID-ACC-002": {
+      "phase": "P0",
+      "category": "acceptance",
+      "severity": "blocking",
+      "statement": "E2E-only acceptance is completed by a passing E2E report that identifies the actual human executor; it does not require G3 or G4.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "release"
+      ]
+    },
+    "MID-GAT-005": {
+      "phase": "P0",
+      "category": "gate",
+      "severity": "blocking",
+      "statement": "G3 actor must differ from required CODE-route G4 actors.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "G4",
+        "release"
+      ]
+    },
+    "MID-GAT-006": {
+      "phase": "P0",
+      "category": "gate",
+      "severity": "blocking",
+      "statement": "CODE-route G4 acceptance coverage must cover CODE ReleaseRevision requirements.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "G4",
+        "release"
+      ]
+    },
+    "MID-GAT-007": {
+      "phase": "P0",
+      "category": "gate",
+      "severity": "blocking",
+      "statement": "G3/G4 events must include decision, identity, payload digest, and an existing evidence location; payload digest must match the canonical payload.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "G3",
+        "G4"
+      ]
+    },
+    "MID-RLS-001": {
+      "phase": "P0",
+      "category": "release",
+      "severity": "blocking",
+      "statement": "Released bundle digest must equal accepted bundle digest.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "deployment"
+      ]
+    },
+    "MID-RLS-002": {
+      "phase": "P0",
+      "category": "release",
+      "severity": "blocking",
+      "statement": "Accepted artifacts must not be rebuilt or replaced after G4.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "deployment"
+      ]
+    },
+    "MID-RUL-001": {
+      "phase": "P0",
+      "category": "policy",
+      "severity": "blocking",
+      "statement": "Rule Registry is the normative rule authority.",
+      "enforcer": "docs-ci",
+      "blocking_points": [
+        "governance_change"
+      ]
+    },
+    "MID-BOOT-001": {
+      "phase": "P0",
+      "category": "bootstrap",
+      "severity": "blocking",
+      "statement": "Canonical Midnight project files must exist before lint.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "G1",
+        "governance_change"
+      ]
+    },
+    "MID-RUL-002": {
+      "phase": "P0",
+      "category": "policy",
+      "severity": "blocking",
+      "statement": "Rule IDs must match MID-[A-Z]+-NNN with a three-digit suffix.",
+      "enforcer": "docs-ci",
+      "blocking_points": [
+        "governance_change"
+      ]
+    },
+    "MID-RUL-003": {
+      "phase": "P0",
+      "category": "policy",
+      "severity": "blocking",
+      "statement": "Each registry rule must include phase, category, severity, statement, enforcer, and blocking_points.",
+      "enforcer": "docs-ci",
+      "blocking_points": [
+        "governance_change"
+      ]
+    },
+    "MID-AI-001": {
+      "phase": "P0",
+      "category": "identity",
+      "severity": "blocking",
+      "statement": "AI agents must use non-human principals and may not approve human gates.",
+      "enforcer": "identity-policy",
+      "blocking_points": [
+        "gate"
+      ]
+    },
+    "MID-CMP-001": {
+      "phase": "P0",
+      "category": "compile",
+      "severity": "blocking",
+      "statement": "compile --check must compare selected projections without writing and fail closed on drift.",
+      "enforcer": "projection-compiler",
+      "blocking_points": [
+        "compile_check"
+      ]
+    },
+    "MID-ADP-001": {
+      "phase": "P0",
+      "category": "adapter",
+      "severity": "blocking",
+      "statement": "Tier A adapter projections must satisfy native-format contracts.",
+      "enforcer": "projection-compiler",
+      "blocking_points": [
+        "compile_check"
+      ]
+    },
+    "MID-REQ-005": {
+      "phase": "P1",
+      "category": "requirement",
+      "severity": "blocking",
+      "statement": "Requirement must contain a non-empty goal.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "G1"
+      ]
+    },
+    "MID-REQ-007": {
+      "phase": "P1",
+      "category": "requirement",
+      "severity": "blocking",
+      "statement": "Requirement must contain acceptance criteria.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "G1"
+      ]
+    },
+    "MID-REQ-008": {
+      "phase": "P1",
+      "category": "requirement",
+      "severity": "blocking",
+      "statement": "Requirement work package must contain the required 00-05 directories.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "G1"
+      ]
+    },
+    "MID-REQ-009": {
+      "phase": "P1",
+      "category": "requirement",
+      "severity": "blocking",
+      "statement": "Requirement work package must contain the required stage files.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "G1"
+      ]
+    },
+    "MID-REQ-010": {
+      "phase": "P1",
+      "category": "requirement",
+      "severity": "blocking",
+      "statement": "REQUIREMENT.yaml must conform to packages/schemas/requirement.schema.json.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "G1"
+      ]
+    },
+    "MID-ITR-001": {
+      "phase": "P1",
+      "category": "iteration",
+      "severity": "blocking",
+      "statement": "Iteration root records must conform to the Iteration contract.",
+      "enforcer": "requirement-lint",
+      "blocking_points": ["G1", "governance_change"]
+    },
+    "MID-ITR-002": {
+      "phase": "P1",
+      "category": "iteration",
+      "severity": "blocking",
+      "statement": "Every Requirement must belong to exactly one Iteration root record.",
+      "enforcer": "requirement-lint",
+      "blocking_points": ["G1", "governance_change"]
+    },
+    "MID-TSK-001": {
+      "phase": "P1",
+      "category": "task",
+      "severity": "blocking",
+      "statement": "Every Requirement must own a task decomposition in 02-PLAN/TASK.md.",
+      "enforcer": "requirement-lint",
+      "blocking_points": ["G1", "governance_change"]
+    },
+    "MID-RSK-001": {
+      "phase": "P2",
+      "category": "risk",
+      "severity": "blocking",
+      "statement": "Declared risk tier must be LOW, HIGH, or CRITICAL after aliasing, and must not sit below the keyword floor.",
+      "enforcer": "requirement-lint",
+      "blocking_points": [
+        "G1"
+      ]
+    },
+    "MID-SRC-005": {
+      "phase": "P1",
+      "category": "source",
+      "severity": "blocking",
+      "statement": "Protected merge must reference valid G2 authorization proof.",
+      "enforcer": "merge-gate",
+      "blocking_points": [
+        "protected_merge"
+      ]
+    },
+    "MID-SRC-009": {
+      "phase": "P1",
+      "category": "source",
+      "severity": "blocking",
+      "statement": "Unresolved RequirementRevision drift blocks normal release.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "verifiable"
+      ]
+    },
+    "MID-CFG-004": {
+      "phase": "P1",
+      "category": "config",
+      "severity": "blocking",
+      "statement": "Desired config digest must equal accepted ConfigSnapshot digest.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "deployment"
+      ]
+    },
+    "MID-CFG-006": {
+      "phase": "P1",
+      "category": "config",
+      "severity": "blocking",
+      "statement": "Observed config must converge to released ConfigSnapshot.",
+      "enforcer": "deployment-verifier",
+      "blocking_points": [
+        "release_completion"
+      ]
+    },
+    "MID-WVR-001": {
+      "phase": "P0",
+      "category": "waiver",
+      "severity": "blocking",
+      "statement": "Waiver must never convert a technical fail into pass.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "verifiable"
+      ]
+    },
+    "MID-EMG-001": {
+      "phase": "P0",
+      "category": "emergency",
+      "severity": "blocking",
+      "statement": "Emergency bypass must remain observable and must not convert a technical fail into pass.",
+      "enforcer": "release-verifier",
+      "blocking_points": [
+        "emergency"
+      ]
+    },
+    "MID-CI-001": {
+      "phase": "P0",
+      "category": "ci",
+      "severity": "blocking",
+      "statement": "Host required-status checks must match policy; missing, unreadable, or drifted checks fail closed.",
+      "enforcer": "ci-evidence",
+      "blocking_points": [
+        "ci_evidence"
+      ]
+    },
+    "MID-CI-002": {
+      "phase": "P0",
+      "category": "ci",
+      "severity": "blocking",
+      "statement": "CI evidence for a run identity is immutable; later steps must not overwrite it.",
+      "enforcer": "ci-evidence",
+      "blocking_points": [
+        "ci_evidence"
+      ]
+    }
+  }
+}

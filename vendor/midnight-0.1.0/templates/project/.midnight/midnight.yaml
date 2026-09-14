@@ -1,0 +1,19 @@
+{
+  "schema": "midnight.project/1",
+  "project": {
+    "id": "example-project",
+    "name": "Example Project"
+  },
+  "governance": {
+    "profile": "P0"
+  },
+  "rules": {
+    "version": "2.4.2"
+  },
+  "tools": {
+    "autodetect": true
+  },
+  "generated": {
+    "mode": "managed"
+  }
+}

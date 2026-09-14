@@ -1,0 +1,13 @@
+{
+  "schema": "midnight.workflow/1",
+  "id": "midnight.implementation",
+  "steps": [
+    "resolve_requirement_revision",
+    "verify_authorization",
+    "load_design",
+    "load_tasks",
+    "delegate_implementation",
+    "run_verification",
+    "record_execution"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "midnight.roles/1",
+  "roles": {
+    "g3": [
+      "qa",
+      "product"
+    ],
+    "g4": [
+      "product-owner"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Midnight Project",
+  "type": "object",
+  "required": [
+    "schema",
+    "project",
+    "governance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "midnight.project/1"
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "required": [
+        "profile"
+      ],
+      "properties": {
+        "profile": {
+          "enum": [
+            "P0",
+            "P1",
+            "P2",
+            "P3"
+          ]
+        }
+      }
+    }
+  }
+}

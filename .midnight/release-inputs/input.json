@@ -1,0 +1,20 @@
+{
+  "release": "REL-EXAMPLE-001",
+  "revision": 1,
+  "requirements": [
+    {
+      "id": "REQ-EXAMPLE-001",
+      "revision": 1
+    }
+  ],
+  "source_revision": "git:example",
+  "artifact_manifest_digest": "sha256:replace-me",
+  "deployment_digest": "sha256:replace-me",
+  "migration_digest": "sha256:replace-me",
+  "config_snapshot": {
+    "schema": "midnight.config/1",
+    "values": {},
+    "secrets": []
+  },
+  "policy_digest": "sha256:replace-me"
+}

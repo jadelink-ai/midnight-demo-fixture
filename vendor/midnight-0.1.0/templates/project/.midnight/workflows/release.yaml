@@ -1,0 +1,13 @@
+{
+  "schema": "midnight.workflow/1",
+  "id": "midnight.release",
+  "steps": [
+    "resolve_release_intent",
+    "collect_inputs",
+    "build_candidate",
+    "freeze_release_revision",
+    "collect_evidence",
+    "verify_g3_g4",
+    "verify_exact_bundle"
+  ]
+}

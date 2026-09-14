@@ -1,0 +1,81 @@
+name: midnight-governance
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+  checks: read
+  pull-requests: read
+
+jobs:
+  midnight-governance:
+    name: midnight-governance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Unit tests
+        run: npm test
+      - name: Midnight lint
+        run: npm run lint
+      - name: Projection drift check
+        run: npm run compile:check
+      - name: Observe host required checks
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          BRANCH="${{ github.base_ref || github.ref_name }}"
+          mkdir -p /tmp/midnight-host
+          gh api "repos/${{ github.repository }}/branches/${BRANCH}/protection" > /tmp/midnight-host/protection.json
+          if [ ! -s /tmp/midnight-host/protection.json ]; then
+            echo '{"message":"unavailable"}' > /tmp/midnight-host/protection.json
+          fi
+          gh api "repos/${{ github.repository }}/rulesets" > /tmp/midnight-host/ruleset-index.json
+          if [ ! -s /tmp/midnight-host/ruleset-index.json ]; then
+            echo '[]' > /tmp/midnight-host/ruleset-index.json
+          fi
+          node --input-type=module -e '
+            import { readFileSync, writeFileSync } from "node:fs";
+            import { spawnSync } from "node:child_process";
+            const repo = process.env.GITHUB_REPOSITORY;
+            let index = [];
+            try { index = JSON.parse(readFileSync("/tmp/midnight-host/ruleset-index.json", "utf8")); } catch {}
+            const full = [];
+            if (Array.isArray(index)) {
+              for (const row of index) {
+                if (!row?.id) continue;
+                const r = spawnSync("gh", ["api", `repos/${repo}/rulesets/${row.id}`], { encoding: "utf8" });
+                if (r.status === 0 && r.stdout) full.push(JSON.parse(r.stdout));
+              }
+            }
+            writeFileSync("/tmp/midnight-host/rulesets.json", JSON.stringify(full, null, 2) + "\n");
+          '
+      - name: CI evidence and protection drift
+        if: always()
+        run: |
+          node --experimental-strip-types vendor/midnight-0.1.0/apps/cli/src/index.ts ci-evidence \
+            --run-id "${{ github.run_id }}" \
+            --sha "${{ github.sha }}" \
+            --repository "${{ github.repository }}" \
+            --ref "${{ github.ref }}" \
+            --host-protection /tmp/midnight-host/protection.json \
+            --host-rulesets /tmp/midnight-host/rulesets.json
+      - name: Retain CI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: midnight-governance-${{ github.run_id }}
+          retention-days: 90
+          overwrite: false
+          if-no-files-found: warn
+          path: |
+            .midnight/evidence/ci/
+            .midnight/policy/ci.yaml
+            .midnight/policy/project.yaml

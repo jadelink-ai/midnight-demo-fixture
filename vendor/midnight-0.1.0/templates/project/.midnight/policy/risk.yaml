@@ -1,0 +1,76 @@
+{
+  "schema": "midnight.risk/1",
+  "tiers": ["LOW", "HIGH", "CRITICAL"],
+  "aliases": {
+    "MEDIUM": "HIGH"
+  },
+  "default_tier": "HIGH",
+  "floors": [
+    {
+      "tier": "CRITICAL",
+      "any_keyword": [
+        "emergency bypass",
+        "production deploy",
+        "production change",
+        "secret",
+        "credential",
+        "migration set"
+      ]
+    },
+    {
+      "tier": "HIGH",
+      "any_keyword": [
+        "release revision",
+        "candidate",
+        "github actions",
+        "requirement schema",
+        "gate event",
+        "bootstrap cli"
+      ]
+    }
+  ],
+  "templates": {
+    "LOW": {
+      "dirs": ["00-MATERIALS", "02-PLAN", "03-RUN", "05-ACCEPTANCE"],
+      "files": [
+        "00-MATERIALS/README.md",
+        "02-PLAN/TASK.md",
+        "03-RUN/RUN.md",
+        "05-ACCEPTANCE/ACCEPTANCE_REPORT.md"
+      ]
+    },
+    "HIGH": {
+      "dirs": ["00-MATERIALS", "01-ANALYSIS", "02-PLAN", "03-RUN", "04-EVIDENCE", "05-ACCEPTANCE"],
+      "files": [
+        "00-MATERIALS/README.md",
+        "01-ANALYSIS/AMBIGUITY_LOG.md",
+        "02-PLAN/TASK.md",
+        "02-PLAN/SDD.md",
+        "02-PLAN/TDD.md",
+        "03-RUN/RUN.md",
+        "03-RUN/TEST_LOG.md",
+        "04-EVIDENCE/README.md",
+        "05-ACCEPTANCE/E2E_REPORT.md",
+        "05-ACCEPTANCE/ACCEPTANCE_REPORT.md"
+      ]
+    },
+    "CRITICAL": {
+      "dirs": ["00-MATERIALS", "01-ANALYSIS", "02-PLAN", "03-RUN", "04-EVIDENCE", "05-ACCEPTANCE"],
+      "files": [
+        "00-MATERIALS/README.md",
+        "01-ANALYSIS/AMBIGUITY_LOG.md",
+        "02-PLAN/TASK.md",
+        "02-PLAN/SDD.md",
+        "02-PLAN/TDD.md",
+        "02-PLAN/ROLLBACK.md",
+        "03-RUN/RUN.md",
+        "03-RUN/TEST_LOG.md",
+        "04-EVIDENCE/README.md",
+        "04-EVIDENCE/RESIDUAL_RISK.md",
+        "05-ACCEPTANCE/E2E_REPORT.md",
+        "05-ACCEPTANCE/ACCEPTANCE_REPORT.md"
+      ]
+    }
+  },
+  "exception": "A declared tier below the keyword floor is a fail. A declared tier may be higher than the floor. MEDIUM is an alias of HIGH."
+}

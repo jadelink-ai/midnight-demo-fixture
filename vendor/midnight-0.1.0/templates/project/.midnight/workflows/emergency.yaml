@@ -1,0 +1,11 @@
+{
+  "schema": "midnight.workflow/1",
+  "id": "midnight.emergency",
+  "steps": [
+    "bind_incident",
+    "authorize_emergency",
+    "record_skipped_checks",
+    "execute_emergency_release",
+    "schedule_post_incident_review"
+  ]
+}

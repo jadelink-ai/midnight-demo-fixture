@@ -1,0 +1,6 @@
+{
+  "schema": "midnight.rule-lock/1",
+  "rule_set": "2.4.2",
+  "rule_digest": "TO_BE_COMPUTED",
+  "compiler": "bootstrap-0.1.0"
+}

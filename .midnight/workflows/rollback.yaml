@@ -1,0 +1,12 @@
+{
+  "schema": "midnight.workflow/1",
+  "id": "midnight.rollback",
+  "steps": [
+    "identify_target",
+    "load_historical_release",
+    "verify_integrity",
+    "record_risk_context",
+    "execute_rollback",
+    "project_production_state"
+  ]
+}

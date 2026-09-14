@@ -1,0 +1,11 @@
+{
+  "schema": "midnight.workflow/1",
+  "id": "midnight.verify",
+  "steps": [
+    "resolve_subject",
+    "load_applicable_rules",
+    "verify_evidence",
+    "verify_gates",
+    "report_rule_results"
+  ]
+}

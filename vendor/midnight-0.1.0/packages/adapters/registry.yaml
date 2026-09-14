@@ -1,0 +1,98 @@
+{
+  "schema": "midnight.tool-compatibility/1",
+  "tools": {
+    "generic": {
+      "tier": "fallback",
+      "native_outputs": [
+        "MIDNIGHT.md"
+      ]
+    },
+    "codex": {
+      "tier": "A",
+      "native_outputs": [
+        "AGENTS.md",
+        ".agents/skills/midnight/SKILL.md"
+      ],
+      "install_markers": [
+        ".codex"
+      ]
+    },
+    "claude-code": {
+      "tier": "A",
+      "native_outputs": [
+        "CLAUDE.md",
+        ".claude/skills/midnight/SKILL.md"
+      ]
+    },
+    "cursor": {
+      "tier": "A",
+      "native_outputs": [
+        ".cursor/rules/*.mdc",
+        ".cursor/skills/*/SKILL.md"
+      ]
+    },
+    "github-copilot": {
+      "tier": "A",
+      "native_outputs": [
+        ".github/copilot-instructions.md",
+        ".github/skills/*/SKILL.md"
+      ],
+      "install_markers": [
+        ".github/copilot"
+      ]
+    },
+    "gemini-cli": {
+      "tier": "A",
+      "native_outputs": [
+        "GEMINI.md"
+      ]
+    },
+    "cline": {
+      "tier": "B",
+      "native_outputs": [
+        ".clinerules/*.md"
+      ]
+    },
+    "roo-code": {
+      "tier": "B",
+      "native_outputs": [
+        ".roo/rules/*.md"
+      ]
+    },
+    "windsurf": {
+      "tier": "B",
+      "native_outputs": [
+        ".windsurfrules"
+      ],
+      "note": "bootstrap fallback; native format must be revalidated before production enforcement"
+    },
+    "continue": {
+      "tier": "B",
+      "native_outputs": [
+        ".continue/rules/*.md"
+      ],
+      "note": "bootstrap fallback; validate against installed Continue version"
+    },
+    "aider": {
+      "tier": "B",
+      "native_outputs": [
+        "MIDNIGHT-AIDER.md"
+      ],
+      "integration": "load read-only from .aider.conf.yml"
+    },
+    "jetbrains-junie": {
+      "tier": "B",
+      "native_outputs": [
+        ".junie/guidelines.md"
+      ],
+      "note": "bootstrap fallback"
+    },
+    "amazon-q": {
+      "tier": "B",
+      "native_outputs": [
+        ".amazonq/rules/midnight.md"
+      ],
+      "note": "bootstrap fallback"
+    }
+  }
+}

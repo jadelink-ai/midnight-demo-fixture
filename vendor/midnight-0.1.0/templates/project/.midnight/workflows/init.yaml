@@ -1,0 +1,11 @@
+{
+  "schema": "midnight.workflow/1",
+  "id": "midnight.init",
+  "steps": [
+    "discover_repository",
+    "initialize_canonical_core",
+    "detect_tools",
+    "compile_adapters",
+    "lint"
+  ]
+}

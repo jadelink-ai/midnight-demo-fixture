@@ -1,0 +1,36 @@
+{
+  "schema": "midnight.ci/1",
+  "runner": "github-actions",
+  "workflow": ".github/workflows/midnight-governance.yml",
+  "node": "22",
+  "checks": [
+    {
+      "id": "test",
+      "command": "npm test",
+      "failure": "block"
+    },
+    {
+      "id": "lint",
+      "command": "npm run lint",
+      "failure": "block"
+    },
+    {
+      "id": "projection-drift",
+      "command": "npm run compile:check",
+      "failure": "block"
+    }
+  ],
+  "artifacts": {
+    "name_pattern": "midnight-governance-${run_id}",
+    "retention_days": 90,
+    "overwrite": false,
+    "path": ".midnight/evidence/ci/"
+  },
+  "protected_change": {
+    "required_status_checks": [
+      "midnight-governance"
+    ],
+    "block_on_failure": true,
+    "enforcement": "repository_host_required_status_checks"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "midnight.project/1",
+  "project": {
+    "id": "midnight-demo-fixture",
+    "name": "Midnight GOV-019 demo fixture"
+  },
+  "governance": {
+    "profile": "P0"
+  },
+  "rules": {
+    "version": "2.4.2"
+  },
+  "tools": {
+    "autodetect": true
+  },
+  "generated": {
+    "mode": "managed"
+  }
+}

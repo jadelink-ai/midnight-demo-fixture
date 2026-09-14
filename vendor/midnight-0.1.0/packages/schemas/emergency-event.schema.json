@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "midnight.emergency-event/1",
+  "title": "Emergency Event",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema",
+    "incident_id",
+    "actor_id",
+    "skipped_checks",
+    "evidence_ref",
+    "signed_at",
+    "payload_digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "midnight.emergency-event/1"
+    },
+    "incident_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actor_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skipped_checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "evidence_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signed_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "subject_digest": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    }
+  }
+}

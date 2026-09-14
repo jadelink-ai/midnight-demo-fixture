@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "midnight.released-bundle/1",
+  "title": "Released Bundle Observation",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema",
+    "bundle_digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "midnight.released-bundle/1"
+    },
+    "bundle_digest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release_revision_digest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bundle": {
+      "type": "object"
+    },
+    "observed_at": {
+      "type": "string"
+    }
+  }
+}
